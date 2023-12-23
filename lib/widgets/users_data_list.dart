@@ -1,7 +1,6 @@
+import 'package:pulo_admin_web_panel/methods/common_methods.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-
-import '../methods/common_methods.dart';
 
 
 class UsersDataList extends StatefulWidget {
@@ -86,27 +85,39 @@ class _UsersDataListState extends State<UsersDataList>
                   1,
                   itemsList[index]["blockStatus"] == "no" ?
                   ElevatedButton(
-                    onPressed: ()
+                    onPressed: () async
                     {
-
+                      await FirebaseDatabase.instance.ref()
+                          .child("users")
+                          .child(itemsList[index]["id"])
+                          .update(
+                          {
+                            "blockStatus": "yes",
+                          });
                     },
                     child: const Text(
                       "Block",
                       style: TextStyle(
-                        color: Colors.pink,
+                        color: Colors.pinkAccent,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   )
                       : ElevatedButton(
-                    onPressed: ()
+                    onPressed: () async
                     {
-
+                      await FirebaseDatabase.instance.ref()
+                          .child("users")
+                          .child(itemsList[index]["id"])
+                          .update(
+                          {
+                            "blockStatus": "no",
+                          });
                     },
                     child: const Text(
                       "Approve",
                       style: TextStyle(
-                        color: Colors.pink,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

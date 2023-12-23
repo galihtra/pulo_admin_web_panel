@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulo_admin_web_panel/widgets/trips_data_list.dart';
 
 import '../methods/common_methods.dart';
 
@@ -55,7 +56,7 @@ class _TripsPageState extends State<TripsPage>
               ),
 
               //display data
-
+              const TripsDataList()
             ],
           ),
         ),
