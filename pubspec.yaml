@@ -34,6 +34,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_admin_scaffold: null
+  intl: ^0.19.0
   url_launcher: ^6.2.2
 
 dev_dependencies:
